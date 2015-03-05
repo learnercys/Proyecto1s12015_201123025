@@ -81,4 +81,10 @@ class User:
             self.right = None
 
         def get_username(self):
-            return self.__user.username
+            return self.__user['username']
+
+        def get_name(self):
+            return self.__user['name']
+
+        def get_password(self):
+            return self.__user['password']  # this is so wrong
