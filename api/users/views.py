@@ -2,7 +2,10 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from users.models import User, Auth
 
-# we cannot try to load the database user. To slow.
+# we cannot try to load the database user in each request. To slow.
+# once the server was started, the unique way to update the users tree
+# is by a creates --> create user request to be exactly. Same thing
+# to auth session.
 user = User()
 auth = Auth()
 
