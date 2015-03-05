@@ -59,6 +59,7 @@ class User:
         # load the main database
         # I hate cannot use the 'database.users' sentence.
         users_database = json.load(open(os.path.join(os.path.dirname(__file__), "../database.json")))['users']
+        self.users = users_database
 
     class Node:
 
