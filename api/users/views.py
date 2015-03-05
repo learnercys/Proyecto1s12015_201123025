@@ -1,9 +1,10 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from users.models import User
+from users.models import User, Auth
 
 # we cannot try to load the database user. To slow.
 user = User()
+auth = Auth()
 
 
 @api_view(['POST'])
@@ -19,6 +20,7 @@ def delete(request):
 @api_view(['GET'])
 def get(request):
     return Response(user.get_all())
+
 
 @api_view(['POST'])
 def login(request):
@@ -36,4 +38,4 @@ def logout(request):
 
 @api_view(['GET'])
 def profile(request):
-    return Response([])
+    return Response([request.META])
