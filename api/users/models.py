@@ -12,18 +12,30 @@ class User:
 
     @overload
     def append(self, user):
-        self.append(user, self.root)
+        if self.root is None:
+            self.root = self.Node(user)
+            return True
+        else:
+            return self.append(user, self.root)
 
     @append.add
     def append(self, user, node):
-        if node is None:
-            node.username = user.username
-            # append the user to the current node
-        else:
-            if user.username < node.username:
-                self.append(user, node.left)
+        if user.username == node.get_username():
+            return False    # cannot append the user, already exist.
+
+        elif user.username < node.get_username():
+            if node.left is None:
+                node.left = self.Node(user)
+                return True
             else:
-                self.append(user, node.rigth)
+                return self.append(user, node.left)
+
+        else:
+            if node.right is None:
+                node.right = self.Node(user)
+                return True
+            else:
+                return self.append(user, node.right)
 
     @overload
     def is_user(self, user):
@@ -49,6 +61,24 @@ class User:
         users_database = json.load(open(os.path.join(os.path.dirname(__file__), "../database.json")))['users']
 
     class Node:
-        def __init__(self, username):
+
+        """
+        :param user { dict } suggested structure:
+            {
+                'username': '[a-z][a-z0-9]*',
+                'name': '',
+                'password': '',
+                'address': '',
+                'phone_number': '',
+                'credit_card_number': '',   # encrypted? no.
+                'actual_address': ''        # I have no idea why?
+            }
+        """
+        def __init__(self, user):
             # the order in the users tree
-            self.username = username
+            self.__user = user
+            self.left = None
+            self.right = None
+
+        def get_username(self):
+            return self.__user.username
