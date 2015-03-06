@@ -41,4 +41,4 @@ def logout(request):
 
 @api_view(['GET'])
 def profile(request):
-    return Response([request.META])
+    return Response([])
