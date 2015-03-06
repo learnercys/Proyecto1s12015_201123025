@@ -1,27 +1,4 @@
-.login-container {
-    display: table;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-}
 
-.login-container > .box {
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.login-container .content {
-    background-color: #ffffff;
-    border: solid rgba(30,23,23,0.3) 1px;
-    border-radius: 2px;
-    display: inline-block;
-    padding: 10px 45px;
-    text-align: left;
-    width: 30%;
-}
 .login-container .content p.input {
     text-align: center;
     margin-bottom: 15px;
@@ -32,6 +9,6 @@
     margin-bottom: 0px;
 }
 
-.login-container .btn {
-    margin-bottom: 25px;
+.login-container .btn-link {
+    padding-right: 0;
 }

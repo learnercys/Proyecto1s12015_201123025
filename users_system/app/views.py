@@ -15,3 +15,10 @@ class LoginView(TemplateView):
 
     def get_context_data(self, **kwargs):
         return super(LoginView, self).get_context_data(**kwargs)
+
+
+class RegisterView(TemplateView):
+    template_name = 'register.html'
+
+    def get_context_data(self, **kwargs):
+        return super(RegisterView, self).get_context_data(**kwargs)

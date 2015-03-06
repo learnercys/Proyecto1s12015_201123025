@@ -1,2 +1,33 @@
 {% extends 'layout.html' %}
+{% block css %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/vertical-align-container.css"/>
+{% endblock css %}
+
+{% block container %}
+<div class="register-container vertical-align-container" ng-controller="RegisterCtrl">
+    <div class="box">
+        <div class="content text-center">
+            <form>
+                <h3 class="text-center">Register</h3>
+                <p><label for="username">Username</label></p>
+
+                <p><input class="form-control" ng-model="username" placeholder="Username" type="text"/></p>
+
+                <p><label for="password">Password</label></p>
+
+                <p><input class="form-control" ng-model="password" placeholder="Password" type="password"/></p>
+
+                <p><label for="confirm">Confirm password</label></p>
+
+                <p><input class="form-control" ng-model="confirmPassword" placeholder="Confirm password" type="text"/></p>
+                <p><button class="btn btn-primary btn-block">Register</button></p>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock container %}
+
+{% block js %}
+    <script src="{{ STATIC_URL }}js/controllers/registerctrl.js"></script>
+{% endblock js %}
 

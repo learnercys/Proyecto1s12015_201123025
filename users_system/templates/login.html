@@ -1,10 +1,11 @@
 {% extends 'layout.html' %}
 {% block css %}
     <link rel="stylesheet" href="{{ STATIC_URL }}css/login.css"/>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/vertical-align-container.css"/>
 {% endblock css %}
 
 {% block container %}
-<div class="login-container" ng-controller="LoginCtrl">
+<div class="login-container vertical-align-container" ng-controller="LoginCtrl">
     <div class="box">
         <div class="content text-center">
             <form>
@@ -14,6 +15,7 @@
                 <p><label for="password">Password</label></p>
                 <p class="input"><input class="form-control" placeholder="Password" ng-model="password" type="password"/></p>
                 <p><button class="btn btn-primary btn-block" ng-click="submit()">Login</button></p>
+                <div class="text-right"><a class="btn btn-link" href="/register">Register</a></div>
             </form>
         </div>
     </div>
