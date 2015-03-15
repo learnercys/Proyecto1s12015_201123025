@@ -15,8 +15,9 @@ import java.io.IOException;
 public class Main extends Application {
 
     public static final String APP_TITLE = "Controller Administrator";
+
     public void start ( Stage primary ) throws IOException{
-        BorderPane root = FXMLLoader.load( getClass().getResource("fxml/mainctrl.fxml"));
+        BorderPane root = FXMLLoader.load( getClass().getResource( "fxml/mainctrl.fxml"));
         primary.setTitle( APP_TITLE );
         primary.setScene( new Scene( root ) );
         primary.show();
