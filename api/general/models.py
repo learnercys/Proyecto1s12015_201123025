@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+
+
 class Node():
     def __init__(self, key, data):
         self.key = key
