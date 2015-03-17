@@ -5,6 +5,7 @@ from users import views
 
 urlpatterns = patterns(
     '',
+    url(r'^/?$', views.index),
     url(r'^create/?$',  views.create),
     url(r'^delete/?$', views.delete),
     url(r'^get/?$', views.get),

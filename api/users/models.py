@@ -7,6 +7,12 @@ class User:
     def __init__(self):
         self.users = AVLTree()
 
+    def insert(self, data):
+        self.users.insert(data.get('username'), {'name': data.get('name'), 'address': data.get('address')})
+
+    def get_users(self):
+        return self.users.inorder()
+
 
 class Auth:
     def __init__(self):

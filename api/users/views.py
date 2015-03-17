@@ -10,9 +10,15 @@ user = User()
 auth = Auth()
 
 
+@api_view(['GET'])
+def index(request):
+    return Response(['INDEX'])
+
+
 @api_view(['POST'])
 def create(request):
-    return Response(['CREATE'])
+    user.insert(request.data)
+    return Response([request.data.get('username'), user.users.rootNode.key])
 
 
 @api_view(['DELETE'])

@@ -1,4 +1,3 @@
-from django.db import models
 
 # Create your models here.
 
@@ -165,7 +164,7 @@ class AVLTree():
             balFactor = node.balance()
             # Test the balance factor
             if not (balFactor >= -1 and balFactor <= 1):
-                raise Exception ("Balance factor for node " + str(node) + " is " + str(balFactor) + "!")
+                raise Exception("Balance factor for node " + str(node) + " is " + str(balFactor) + "!")
             # Make sure we have no circular references
             if not (node.leftChild != node):
                 raise Exception("Circular reference for node " + str(node) + ": node.leftChild is node!")
@@ -207,7 +206,7 @@ class AVLTree():
                         node.height = node.max_children_height() + 1
                         if not node.balance() in [-1, 0, 1]:
                             node_to_rebalance = node
-                            break # we need the one that is furthest from the root
+                            break   # we need the one that is furthest from the root
                         node = node.parent
             else:
                 self.add_as_child(parent_node.leftChild, child_node)
@@ -221,7 +220,7 @@ class AVLTree():
                         node.height = node.max_children_height() + 1
                         if not node.balance() in [-1, 0, 1]:
                             node_to_rebalance = node
-                            break # we need the one that is furthest from the root
+                            break   # we need the one that is furthest from the root
                         node = node.parent
             else:
                 self.add_as_child(parent_node.rightChild, child_node)
@@ -279,13 +278,18 @@ class AVLTree():
             retlst = self.preorder(node.rightChild, retlst)
         return retlst
 
-    def inorder(self, node, retlst=None):
+    def inorder(self, node=None, retlst=None):
+        if node is Node:
+            node = self.rootNode
+
         if retlst is None:
             retlst = []
-        if node.leftChild:
+
+        if node.leftChild is not None:
             retlst = self.inorder(node.leftChild, retlst)
+
         retlst += [node.key]
-        if node.rightChild:
+        if node.rightChild is not None:
             retlst = self.inorder(node.rightChild, retlst)
         return retlst
 
