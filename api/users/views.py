@@ -19,12 +19,12 @@ def index(request):
 @api_view(['POST'])
 def create(request):
     if user.find(request.data):
-        return Response({'message': 'user_already_exist'}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({'message': 'user_already_exist'}, status.HTTP_400_BAD_REQUEST)
 
     user.insert(request.data)
     # if the user is created we verify the avl tree to know if it's necessary
     # to re-order.
-    return Response({'message': 'user_created'}, status=status.HTTP_200_OK)
+    return Response({'message': 'user_created'}, status.HTTP_200_OK)
 
 
 @api_view(['DELETE'])
@@ -39,9 +39,19 @@ def get(request):
 
 @api_view(['POST'])
 def login(request):
-    return Response({
-        'data': []
-    })
+    _user = user.find(request.data)
+    if _user is not None and _user.data.get('password') == request.data.get('password'):
+
+        return Response(
+            {
+                'message': 'login_created',
+                'token': auth.save_token(request.data.get('username'))
+            }, status.HTTP_200_OK
+        )
+
+    return Response({'message': 'cannot_login'}, status.HTTP_400_BAD_REQUEST)
+
+
 
 
 @api_view(['DELETE'])

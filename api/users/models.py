@@ -26,12 +26,23 @@ class User:
         return self.users.inorder()
 
 
+import string
+import random
+
+
 class Auth:
     def __init__(self):
-        self.__load_all()
+        self.tokens = {}
 
-    def __load_all(self):
-        import os
-        import json
-        self.sessions = json.load(open(os.path.join(os.path.dirname(__file__), "../database.json")))['sessions']
+    def save_token(self, username):
+        while True:
+            _token = self.token_generator()
+            if self.tokens.get(_token) is None:
+                self.tokens[_token] = username
+                return _token
+
+    @staticmethod
+    def token_generator(size=40, chars=string.ascii_lowercase + string.digits):
+        return ''.join(random.choice(chars) for _ in range(size))
+
 
