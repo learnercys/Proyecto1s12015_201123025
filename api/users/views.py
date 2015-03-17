@@ -52,8 +52,6 @@ def login(request):
     return Response({'message': 'cannot_login'}, status.HTTP_400_BAD_REQUEST)
 
 
-
-
 @api_view(['DELETE'])
 def logout(request):
     return Response({

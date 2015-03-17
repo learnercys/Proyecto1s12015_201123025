@@ -18,6 +18,10 @@
                 <p class="input"><input class="form-control" placeholder="Password" ng-model="password" type="password"/></p>
                 <p><button class="btn btn-primary btn-block" ng-click="submit()">Login</button></p>
                 <div class="text-right"><a class="btn btn-link" href="/register">Register</a></div>
+                {% verbatim %}
+                <p class="alert alert-danger" ng-cloak="" ng-class="{'none':options.type!='danger'}">{{ options.message }}</p>
+                <p class="alert alert-success" ng-cloak="" ng-class="{'none':options.type!='success'}">{{ options.message }}</p>
+                {% endverbatim %}
             </form>
         </div>
     </div>

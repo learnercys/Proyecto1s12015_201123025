@@ -24,6 +24,7 @@
                 
                 self.login = function (data, success, fail, end) {
                     Restangular
+                        .all('users')
                         .all('login')
                         .post(data)
                         .then( function ( response ) {
