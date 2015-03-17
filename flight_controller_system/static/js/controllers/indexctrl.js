@@ -2,12 +2,12 @@
  * Created by carlos on 17/03/15.
  */
 
-angular.module('usersSystem').controller('IndexCtrl',
+angular.module('flightControllerSystem').controller('IndexCtrl',
     function (
         $scope
     ) {
         $scope.options = {
-            showDeleteAccount: false
+            page: 'index'
         };
         $scope.deleteAccount = function () {
 
