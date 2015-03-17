@@ -1,4 +1,4 @@
-from overload import overload
+
 from general.models import AVLTree
 
 
@@ -7,8 +7,20 @@ class User:
     def __init__(self):
         self.users = AVLTree()
 
+    def find(self, data):
+        return self.users.find(data.get('username'))
+
     def insert(self, data):
-        self.users.insert(data.get('username'), {'name': data.get('name'), 'address': data.get('address')})
+        self.users.insert(
+            data.get('username'), {
+                'name': data.get('name'),
+                'address': data.get('address'),
+                'password': data.get('password'),
+                'phoneNumber': data.get('phoneNumber'),
+                'creditCardNumber': data.get('creditCardNumber'),
+                'actualAddress': data.get('actualAddress')
+            }
+        )
 
     def get_users(self):
         return self.users.inorder()

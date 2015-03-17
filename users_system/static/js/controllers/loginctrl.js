@@ -3,9 +3,24 @@
  */
 
 ( function ( angular ) {
-    angular.module('usersSystem').controller('LoginCtrl', function( $scope ) {
-        $scope.submit = function () {
-            console.log('submit');
-        };
-    });
+    angular.module('usersSystem').controller('LoginCtrl', [
+        '$scope',
+        'Auth',
+        function(
+            $scope,
+            Auth
+        ) {
+            $scope.submit = function () {
+                Auth.login({
+                    username: $scope.username,
+                    password: $scope.password
+                }, function ( response ) {
+
+                }, function ( error ) {
+
+                });
+                console.log('submit');
+            };
+        }
+    ]);
 })(window.angular);

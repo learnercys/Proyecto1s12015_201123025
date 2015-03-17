@@ -279,7 +279,7 @@ class AVLTree():
         return retlst
 
     def inorder(self, node=None, retlst=None):
-        if node is Node:
+        if node is None:
             node = self.rootNode
 
         if retlst is None:

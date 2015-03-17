@@ -6,21 +6,45 @@
 {% block container %}
 <div class="register-container vertical-align-container" ng-controller="RegisterCtrl">
     <div class="box">
-        <div class="content text-center">
-            <form>
+        <div class="content text-center" style="width: 50%">
+            <form ng-submit="submit()">
                 <h3 class="text-center">Register</h3>
-                <p><label for="username">Username</label></p>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <p><label for="username">username</label></p>
 
-                <p><input class="form-control" ng-model="username" placeholder="Username" type="text"/></p>
+                        <p><input required="" class="form-control" ng-model="username" placeholder="Username" type="text"/></p>
 
-                <p><label for="password">Password</label></p>
+                        <p><label for="password">Password</label></p>
 
-                <p><input class="form-control" ng-model="password" placeholder="Password" type="password"/></p>
+                        <p><input required="" class="form-control" ng-model="password" placeholder="Password" type="password"/></p>
 
-                <p><label for="confirm">Confirm password</label></p>
+                        <p><label for="name">Name</label></p>
 
-                <p><input class="form-control" ng-model="confirmPassword" placeholder="Confirm password" type="text"/></p>
-                <p><button class="btn btn-primary btn-block">Register</button></p>
+                        <p><input required="" class="form-control" ng-model="name" placeholder="Name" type="text"/></p>
+
+                        <p><label for="address">Address</label></p>
+
+                        <p><input required="" class="form-control" ng-model="address" placeholder="Address" type="text"/></p>
+                    </div>
+                    <div class="col-xs-6">
+                        <p><label for="phoneNumber">Phone number</label></p>
+
+                        <p><input required="" class="form-control" type="text" ng-model="phoneNumber" placeholder="Phone number"/></p>
+
+                        <p><label for="creditCardNumber">Credit Card Number</label></p>
+
+                        <p><input required="" class="form-control" type="text" ng-model="creditCardNumber" placeholder="Credit card number"/></p>
+                        <p><label for="actualAddress">Actual address</label></p>
+
+                        <p><input required="" class="form-control" type="text" ng-model="actualAddress" placeholder="Actual address"/></p>
+                        <p style="margin-top: 45px"><button class="btn btn-primary btn-block" type="submit">Register</button></p>
+                    </div>
+                </div>
+                {% verbatim %}
+                <p class="alert alert-danger" ng-cloak ng-class="{'none':!options.danger}">{{ options.message }}</p>
+                <p class="alert alert-success" ng-cloak ng-class="{'none':!options.success}">{{ options.message }}</p>
+                {% endverbatim %}
             </form>
         </div>
     </div>

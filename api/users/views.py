@@ -1,3 +1,4 @@
+from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from users.models import User, Auth
@@ -17,8 +18,13 @@ def index(request):
 
 @api_view(['POST'])
 def create(request):
+    if user.find(request.data):
+        return Response({'message': 'user_already_exist'}, status=status.HTTP_400_BAD_REQUEST)
+
     user.insert(request.data)
-    return Response([request.data.get('username'), user.users.rootNode.key])
+    # if the user is created we verify the avl tree to know if it's necessary
+    # to re-order.
+    return Response({'message': 'user_created'}, status=status.HTTP_200_OK)
 
 
 @api_view(['DELETE'])

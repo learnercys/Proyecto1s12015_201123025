@@ -1,10 +1,10 @@
-{% load djangular_tags %}<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
     <title>Users Administrator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="{{ STATIC_URL }}lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="{{ STATIC_URL }}css/layout.css"/>
     {% block css %} {% endblock %}
 </head>
@@ -12,10 +12,20 @@
     <div class="container">
         {% block container %}{% endblock %}
     </div>
-    <script src="{{ STATIC_URL }}js/jquery.min.js"></script>
-    <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
-    <script src="{{ STATIC_URL }}js/angular.min.js"></script>
+    {# libs #}
+    <script src="{{ STATIC_URL }}lib/jquery/dist/jquery.js"></script>
+    <script src="{{ STATIC_URL }}lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="{{ STATIC_URL }}lib/angular/angular.js"></script>
+    <script src="{{ STATIC_URL }}lib/lodash/dist/lodash.js"></script>
+    <script src="{{ STATIC_URL }}lib/restangular/dist/restangular.js"></script>
+    <script src="{{ STATIC_URL }}lib/angular-cookies/angular-cookies.js"></script>
+    {# end libs #}
     <script src="{{ STATIC_URL }}js/app.js"></script>
+    <script src="{{ STATIC_URL }}js/app-run.js"></script>
+
+    {# services #}
+    <script src="{{ STATIC_URL }}js/services/auth.js"></script>
+    {# end services #}
     {% block js %}{% endblock %}
 </body>
 </html>
