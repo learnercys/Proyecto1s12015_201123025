@@ -10,5 +10,6 @@ urlpatterns = patterns(
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^api/$', views.index),
     url(r'^api/users/', include('users.urls')),
-    url(r'^api/flights/', include('flights.urls'))
+    url(r'^api/flights/', include('flights.urls')),
+    url(r'^api/airports/', include('airports.urls'))
 )

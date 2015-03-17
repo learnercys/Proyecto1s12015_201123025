@@ -21,7 +21,33 @@
                 </div>
             </div>
             <div class="none" ng-class="{'none':options.page!='create-airport'}">
-
+                <form ng-submit="createAirport">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <p><label for="airportName">Airport name</label></p>
+                        </div>
+                        <div class="col-xs-3">
+                            <p><label for="airportActualCountry">Actual country</label></p>
+                        </div>
+                        <div class="col-xs-3">
+                            <p><label for="airportPassword">Password</label></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <input required="" class="form-control" type="text" placeholder="Airport name" ng-model="airportName"/>
+                        </div>
+                        <div class="col-xs-3">
+                            <input required="" class="form-control" type="text" placeholder="Actual country" ng-model="airportActualCountry"/>
+                        </div>
+                        <div class="col-xs-3">
+                            <input required="" class="form-control" type="text" placeholder="Password" ng-model="airportPassword"/>
+                        </div>
+                        <div class="col-xs-3">
+                            <button class="btn btn-primary btn-block" ng-click="createAirport()">Create</button>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="none" ng-class="{'none':options.page!='create-flight'}">
 
@@ -34,3 +60,4 @@
 {% block js %}
     <script src="{{ STATIC_URL }}js/controllers/indexctrl.js"></script>
 {% endblock js %}
+

@@ -447,27 +447,55 @@ class AVLTree():
             node2.rightChild = node1
             node1.parent = node2
 
-    # use for debug only and only with small trees
-    # def out(self, start_node=None):
-    #     if start_node == None:
-    #         start_node = self.rootNode
-    #     space_symbol = "*"
-    #     spaces_count = 80
-    #     out_string = ""
-    #     initial_spaces_string = space_symbol * spaces_count + "\n"
-    #     if not start_node:
-    #         return "AVLTree is empty"
-    #     else:
-    #         level = [start_node]
-    #         while len([i for i in level if (not i is None)])>0:
-    #             level_string = initial_spaces_string
-    #             for i in xrange(len(level)):
-    #                 j = (i+1)*spaces_count / (len(level)+1)
-    #                 level_string = level_string[:j] + (str(level[i]) if level[i] else space_symbol) + level_string[j+1:]
-    #             level_next = []
-    #             for i in level:
-    #                 level_next += ([i.leftChild, i.rightChild] if i else [None, None])
-    #             level = level_next
-    #             out_string += level_string
-    #     return out_string
+
+class DDList:
+
+    def __init__(self):
+        self.counter = 0
+        self.last = None
+        self.first = None
+
+    def append(self, element):
+        if self.last is None and self.first is None:
+            self.last = self.Node(element)
+            self.first = self.last
+        else:
+            new_node = self.Node(element)
+            self.last.next = new_node
+            new_node.previous = self.last
+            new_node.next = self.first
+        self.counter += 1
+
+    def front(self):
+        if self.counter == 0:
+            return None
+        e = self.first.element
+
+        self.first = self.first.next
+        self.last.next = self.first
+        self.counter -= 1
+        return e
+
+    def back(self):
+        if self.counter == 0:
+            return None
+
+        e = self.last.element
+
+        self.last = self.last.previous
+        self.last.next = self.first
+
+        self.counter -= 1
+        return e
+
+    def size(self):
+        return self.counter
+
+    class Node:
+
+        def __init__(self, element):
+            self.next = None
+            self.previous = None
+            self.element = element
+
 

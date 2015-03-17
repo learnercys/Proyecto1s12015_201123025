@@ -4,11 +4,17 @@
 
 angular.module('flightControllerSystem').controller('IndexCtrl',
     function (
-        $scope
+        $scope,
+        Airport
     ) {
         $scope.options = {
             page: 'index'
         };
+
+        $scope.createAirport = function () {
+
+        };
+
         $scope.deleteAccount = function () {
 
         };
