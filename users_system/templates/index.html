@@ -1,10 +1,10 @@
-{% extends 'layout.html' %}
+{% extends '_has_session.html' %}
 {% block css %}
     <link rel="stylesheet" href="{{ STATIC_URL }}css/vertical-align-container.css"/>
     <link rel="stylesheet" href="{{ STATIC_URL }}css/index.css"/>
 {% endblock css %}
 
-{% block container %}
+{% block cont %}
 <div class="vertical-align-container" ng-controller="IndexCtrl">
     <div class="box">
         <div class="content text-center">
@@ -16,7 +16,7 @@
                 <button class="btn btn-primary btn-block">Flights list</button>
                 <button class="btn btn-danger btn-block" ng-click="options.showDeleteAccount=true">Delete account</button>
             </div>
-            <div ng-cloak="" ng-class="{'none':!options.showDeleteAccount}">
+            <div class="none" ng-cloak="" ng-class="{'none':!options.showDeleteAccount}">
                 <p class="text-left">
                     <button class="btn btn-link" ng-click="options.showDeleteAccount=false">back</button>
                 </p>
@@ -25,7 +25,7 @@
         </div>
     </div>
 </div>
-{% endblock container %}
+{% endblock cont %}
 
 {% block js %}
     <script src="{{ STATIC_URL }}js/controllers/indexctrl.js"></script>
