@@ -2,3 +2,5 @@
 static_root
 static/lib
 
+*.pyc
+
