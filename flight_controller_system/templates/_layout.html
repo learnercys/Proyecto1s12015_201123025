@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Flight controller system</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/_layout.css"/>
+    {% block css %} {% endblock %}
+</head>
+<body ng-app="flightControllerSystem">
+    <div class="container">
+        {% block container %}{% endblock %}
+    </div>
+    {# libs #}
+    <script src="{{ STATIC_URL }}lib/jquery/dist/jquery.js"></script>
+    <script src="{{ STATIC_URL }}lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="{{ STATIC_URL }}lib/angular/angular.js"></script>
+    <script src="{{ STATIC_URL }}lib/lodash/dist/lodash.js"></script>
+    <script src="{{ STATIC_URL }}lib/restangular/dist/restangular.js"></script>
+    <script src="{{ STATIC_URL }}lib/angular-cookies/angular-cookies.js"></script>
+    {# end libs #}
+    <script src="{{ STATIC_URL }}js/app.js"></script>
+    <script src="{{ STATIC_URL }}js/app-run.js"></script>
+
+    {# services #}
+
+    {# end services #}
+    {% block js %}{% endblock %}
+</body>
+</html>

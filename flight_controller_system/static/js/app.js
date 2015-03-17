@@ -1,10 +1,10 @@
 /**
- * Created by learnerc on 3/6/15.
+ * Created by carlos on 17/03/15.
  */
 
 "use strict";
 
-angular.module('usersSystem', [
+angular.module('flightControllerSystem', [
     'ngCookies',
     'restangular'
 ]).config([
@@ -26,4 +26,3 @@ angular.module('usersSystem', [
         });
     }
 ]);
-

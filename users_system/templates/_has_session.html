@@ -1,7 +1,14 @@
 {% extends '_layout.html' %}
 
 {% block container %}
-    <p class="text-right">hola</p>
+    <p style="margin-top: 10px;" class="text-right">
+        <button class="btn btn-link" onclick="logout()">Logout</button>
+    </p>
     {% block cont %}{% endblock %}
+    <script>
+        function logout() {
+            $log('log');
+        }
+    </script>
 {% endblock container %}
 

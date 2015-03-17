@@ -5,3 +5,4 @@ db.sqlite3
 *.iml
 gradle
 users_system_static
+flight_controller_system_static
