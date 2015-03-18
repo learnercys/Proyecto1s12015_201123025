@@ -5,6 +5,7 @@
 angular.module('flightControllerSystem').controller('IndexCtrl',
     function (
         $scope,
+        $timeout,
         Airport
     ) {
         $scope.options = {
@@ -12,7 +13,20 @@ angular.module('flightControllerSystem').controller('IndexCtrl',
         };
 
         $scope.createAirport = function () {
+            Airport.create({
+                name: $scope.airportName,
+                actualCountry: $scope.airportActualCountry,
+                password: $scope.airportPassword
 
+            }, function ( /*response */ ) {
+                $timeout(function ( ) {
+                    $scope.options.page = 'index';
+                }, 200)
+            }, function ( error ) {
+
+            }, function ( ) {
+
+            });
         };
 
         $scope.deleteAccount = function () {

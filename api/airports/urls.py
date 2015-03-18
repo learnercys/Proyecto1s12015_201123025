@@ -5,5 +5,6 @@ from airports import views
 
 urlpatterns = patterns(
     '',
-    url(r'^/?$', views.index)
+    url(r'^/?$', views.index),
+    url(r'^create/?$', views.create)
 )
